@@ -31,7 +31,11 @@ module.exports = MarkdownImgHelper =
 				md5 = crypto.createHash 'md5'
 				md5.update(imgbuffer)
 
-				filename = "#{thefile.getBaseName().replace(/\.\w+$/, '').replace(/\s+/g,'')}-#{md5.digest('hex').slice(0,5)}.png"
+				pinyin = require "pinyin"
+				filename = pinyin("#{thefile.getBaseName().replace(/\.\w+$/, '').replace(/\s+/g,'')}_#{md5.digest('hex').slice(0,5)}.png", {
+				  style: pinyin.STYLE_NORMAL
+				})
+				filename = "#{filename}".replace(/,/g,'')
 
 				@createDirectory assetsDirPath, ()=>
 					@writePng assetsDirPath+'/', filename, imgbuffer, ()=>
