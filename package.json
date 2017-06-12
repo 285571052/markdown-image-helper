@@ -10,7 +10,7 @@
     "paste",
     "copy"
   ],
-  "repository": "https://github.com/bigyuki/markdown-image-helper",
+  "repository": "https://github.com/285571052/markdown-image-helper",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
